@@ -4,5 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-   ROLES = %w[admin moderator author banned]
+  ROLES = %w[admin user guest]
+  has_many :article
+
 end
