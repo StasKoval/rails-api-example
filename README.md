@@ -1,5 +1,18 @@
 == README
 
+== Goal:
+
+- It's API (REST, JSON);
+- It's secured by basic auth (token);
+- It's contain User mode - with different roles (admin, user, guest);
+- It's limit access to given part of API depending on User role;
+- Admin has access to everything;
+- User can read all, create all, but update and deleted only his records;
+- Guest has only read access;
+- There should be at least 2 different models except User;
+- Those models should be in relation (1 to many);
+- Tests for API;
+
 - ```rake db:create```
 - ```rake db:migrate```
 - ```rake db:seed```
