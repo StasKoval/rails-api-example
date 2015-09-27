@@ -20,7 +20,6 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'pry'
   gem 'hashie'
-  gem 'database_cleaner'
 end
 
 group :development do
@@ -33,4 +32,5 @@ group :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails'
   gem 'database_cleaner'
+  gem 'simplecov', require: false
 end

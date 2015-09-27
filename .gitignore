@@ -12,3 +12,5 @@
 !/log/.keep
 /tmp
 /config/database.yml
+coverage
+docs/api
