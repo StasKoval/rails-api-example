@@ -1,4 +1,5 @@
 == README
+[ ![Codeship Status for sesharim/rails-api-example](https://codeship.com/projects/3ccca7d0-4781-0133-ebfa-7a3d06ec36a2/status?branch=master)](https://codeship.com/projects/105043)
 
 == Goal:
 
@@ -12,6 +13,8 @@
 - There should be at least 2 different models except User;
 - Those models should be in relation (1 to many);
 - Tests for API;
+
+== Run app:
 
 - ```rake db:create```
 - ```rake db:migrate```
