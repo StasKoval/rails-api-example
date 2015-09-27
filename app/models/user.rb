@@ -1,10 +1,11 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  enum role: [ :guest, :user, :admin ]
 
-  ROLES = %w[admin user guest]
   has_many :article
+  before_create :generate_token
+
+  def generate_token
+    self.token = Digest::SHA1.hexdigest([Time.now, rand].join)
+  end
 
 end

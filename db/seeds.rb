@@ -1,18 +1,12 @@
 first = User.new do |user|
-  user.email                 = 'admin@gmail.com'
-  user.password              = 'password'
-  user.password_confirmation = 'password'
-  user.role                  = 'admin'
-
+  user.email = 'admin@gmail.com'
+  user.admin!
   user.save!
 end
 
 second = User.new do |user|
-  user.email                 = 'user@gmail.com'
-  user.password              = 'password'
-  user.password_confirmation = 'password'
-  user.role                  = 'user'
-
+  user.email = 'user@gmail.com'
+  user.user!
   user.save!
 end
 
