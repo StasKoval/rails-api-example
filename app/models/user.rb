@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   enum role: [ :guest, :user, :admin ]
 
-  has_many :article
+  has_many :articles
   before_create :generate_token
 
   def generate_token
