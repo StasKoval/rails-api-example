@@ -50,6 +50,28 @@ describe "ArticlesController", type: :request do
     end
   end
 
+  context "#create" do
+    let(:params) { {title: 'Hi there', content: 'hello'} }
+
+    context "when user is not authorized" do
+      it 'return nothign just auth message' do
+        post '/api/v1/articles', {article: params}, authorization: nil
+
+        expect(response.body).to include('HTTP Token: Access denied')
+        expect(response.status).to eq(401)
+      end
+    end
+
+    context "when user is authorized and an author of the article" do
+      it 'return nothign just error' do
+        post '/api/v1/articles', {article: params}, authorization: first_auth
+
+        expect(json_response['article']['content']).to eq('hello')
+        expect(response.status).to eq(200)
+      end
+    end
+  end
+
   context "#update" do
     context "when user is authorized but not an author of the article" do
       it 'return nothign just auth message' do

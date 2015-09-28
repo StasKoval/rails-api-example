@@ -26,7 +26,7 @@ module Api
       # POST /articles
       # POST /articles.json
       def create
-        @article = Article.new(article_params)
+        @article = current_user.articles.build(article_params)
         if @article.save
           render json: @article
         else

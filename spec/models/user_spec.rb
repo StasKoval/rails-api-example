@@ -8,7 +8,7 @@ describe User do
   end
 
   describe "relations" do
-    it { is_expected.to have_many(:article) }
+    it { is_expected.to have_many(:articles) }
   end
 
   describe "callbacks" do
