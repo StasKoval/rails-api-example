@@ -57,7 +57,7 @@ module Api
         end
 
         def article_params
-          params.require(:article).permit(:user_id, :content, :title)
+          params.require(:article).permit(:content, :title)
         end
     end
   end
