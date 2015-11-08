@@ -7,11 +7,14 @@ class Ability
     # admin can manage anything
     if user.admin?
       can :manage, :all
-    # user can read articles, but edit or destroy only articles belongs to
     else
-      can :show,   Article
+      # user can read articles, but edit or destroy only articles belongs to
       can :index,  Article
       can :create, Article
+      # Show only articles that belongs to current user
+      can :show, Article do |article|
+        article.user_id == user.id
+      end
       # Update and destroy only articles that belongs to current user
       can [:update, :destroy], Article do |article|
         article.user_id == user.id
